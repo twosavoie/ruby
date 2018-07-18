@@ -6,7 +6,7 @@ def birthdate
   birthdate = gets
 end
 
-#This works also. SK has it this way and below all the methods. Since I used a method, it is the first method.
+#This works also. SK has it this way and below all the methods. Since I used a method, it is the first method though puts is also a method...
 #puts "What is your birthdate? Use MMDDYYYY format"
 #birthdate = gets
 

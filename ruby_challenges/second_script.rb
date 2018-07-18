@@ -1,1 +1,0 @@
-puts "Second practice"

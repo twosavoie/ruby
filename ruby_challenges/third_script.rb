@@ -1,1 +1,0 @@
-puts "Third practice"
