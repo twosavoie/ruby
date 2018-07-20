@@ -1,7 +1,7 @@
 class Footballplayer
 
   def set_name=(name)
-    @name = name
+    @name = name #should these be @@ instead?
   end
 
   def get_name
