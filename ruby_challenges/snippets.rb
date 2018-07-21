@@ -1,4 +1,5 @@
 #Snippets of Ruby code for reference
+#try for storing snippets per Ann: https://gist.github.com
 
 #method, pass a variable, add
 def add_twos(num1, num2)
@@ -106,7 +107,7 @@ puts "Ready to go to bed? Please answer Y/N:"
 answer = gets.chomp.downcase #needs chomp or the answer is n + something so script stops
 while (answer == "n")
   puts "Ready to go to bed? Please answer Y/N:"
-  answer = gets.chomp.downcase
+  answer = gets.chomp.downcase #need this to keep the loop see above
 end
 if (answer == "y")
   puts "About time!"
@@ -149,6 +150,7 @@ end
     quarterback.set_name= "Aaron Rodgers"
     quarterbackname = quarterback.get_name
 puts quarterback.inspect
+#end
 
 #case statement
 fav_color = "blue"
@@ -160,6 +162,7 @@ when "purple"
 else
   puts "Hmm, well I don't know what that color is!"
 end
+#end
 
 #FizzBuzz, counting, remainder modulus, if/else
 i = 0
@@ -189,3 +192,33 @@ while (number <= 99)
     puts number
   end
 end
+#end
+
+#count,
+class Ferret
+
+  @@total_ferrets = 0
+
+  def initialize
+    @@total_ferrets += 1
+  end
+
+  def self.current_count
+    puts "There are currently #{@@total_ferrets} instances of my Ferret class."
+  end
+end
+my_ferret = Ferret.new
+Ferret.current_count
+#end
+
+#push to the front of an array
+array_name = []
+  array_name.unshift("#{title}")
+
+#push to a hash
+hash_name = {}
+  hash_name[key] = value
+movies_rating = {lotr: 4, batman: 3.5}
+  movies_rating[:titanic] = 1
+    #is the colon in the right place?
+    #https://www.codecademy.com/en/forum_questions/516acc68a052284fcb000816

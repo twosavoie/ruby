@@ -1,5 +1,7 @@
-class Blog
+#Ruby script to create a blog. Designed to be run in the terminal. Remove extra \n in production.
 
+class Blog
+  #count total posts
   @@total_posts = 0
 
   def initialize
@@ -7,7 +9,7 @@ class Blog
   end
 
   def self.current_count
-    puts "There are currently #{@@total_posts} instances of my Blog."
+    puts "\nThere are currently #{@@total_posts} Blog Posts."
   end #move to bottom so all methods at bottom?
 
 end
@@ -50,29 +52,42 @@ class BlogPost < Blog
 end
 
 puts "Do you want to create another blog post [Y/N]"
-gets.chomp.downcase
+ answer = gets.chomp.downcase
+ if (answer == "y")
+    #create new blog post
+    blog_post = BlogPost.new
+    blog_post.set_title= ""
+    blog_post_title = blog_post.get_title
 
-blog_post = BlogPost.new
-blog_post.set_title= "blah"
-blog_post_title = blog_post.get_title
+    puts "Title of blog post?"
+    title = gets
+    #get and pass to title
+    puts "Author's name"
+    author = gets
+    #gets and passes to author
+    puts "Content"
+    content = gets
+    #gets and passes to Content
 
-  puts "Title of blog post?"
-  title = gets
-  #get and pass to title
-  puts "Author's name"
-  author = gets
-  #gets and passes to author
-  #should I put an if/else that my name is default but leave room for a guest author?
-  puts "Content"
-  content = gets
-  #gets and passes to Content
+    #print blog
+    #title of blog
+    puts "\nLisa's amazing blog!"
+    #date of blog post
+    publish_date = Time.new
+    publish_date = publish_date.month.to_s + "/" + publish_date.day.to_s + "/" + publish_date.year.to_s
+    #title, author, & content of blog
+    puts publish_date + "\n#{title.capitalize}\n" + "#{author.capitalize}\n" + "#{content}"
 
+    #counts blogposts
+    BlogPost.current_count
 
-  puts "Lisa's amazing blog!"
-  #ok, so, I want to write a blog post and I've gathered all my info. Time to print blogpost, add to array, add to @@total_posts
+    #list of blog post titles
+    posts = [] 
+      posts.unshift("#{title}")
+      puts "\nList of blog posts: #{title.capitalize}\n"
 
-  #puts blogpost
-  #date first
-  publish_date = Time.new
-  publish_date = publish_date.month.to_s + "/" + publish_date.day.to_s + "/" + publish_date.year.to_s
-  puts publish_date + "\n#{title.capitalize}\n" + "#{author.capitalize}\n" + "#{content}"
+  elsif (answer == "n")
+    puts "Maybe Google for a blog post idea?"
+  else
+    puts "Y or N please."
+end
