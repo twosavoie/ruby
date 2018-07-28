@@ -5,7 +5,7 @@ require 'twilio-ruby'
 
 
 
-@client = Twilio::REST::Client.new 'ACf2953c4831b4cbf28364ef2661e91433', '0fd6a517661bd668ed1bad0e42df585e'
+
 
 answer = [
   "It is certain",
@@ -20,8 +20,7 @@ gets
 
 #syntax from https://github.com/twilio/twilio-ruby
 message = @client.api.account.messages.create(
-  from: "+19137054678",
-  to: "+19137527729",
+ 
   body: answer.sample  #get a random item from the array
 )
 
