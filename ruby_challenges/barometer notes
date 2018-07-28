@@ -1,0 +1,76 @@
+#https://learn.skillcrush.com/module-18/step-1-create-your-weather-script/
+
+#require 'bundler/setup'
+#Bundler.require(:default)
+require 'barometer'
+require 'barometer-yahoo'
+#require 'barometer-noaa'
+#require 'barometer-forecast_io'
+#require 'nokogiri'
+Barometer::WeatherService.register(:yahoo, Barometer::Yahoo)
+#Barometer::WeatherService.register(:noaa, Barometer::Noaa)
+#Barometer::WeatherService.register(:forecast_io, Barometer::ForecastIo)
+
+
+# use yahoo and noaag, if they both fail, use wunderground
+Barometer.config = { 1 => :yahoo, 2 => :wunderground }
+
+barometer = Barometer.new('Kansas City')
+weather = barometer.measure
+
+puts weather.current.temperature.f
+
+#puts "Where are you (city, zipcode, landmark, or Woe ID)"
+#location = gets.chomp
+
+#barometer = Barometer.new('Kansas City')   #script from Barometer gem
+#weather = barometer.measure
+#puts weather.current.temperature.f #the temperature is waaaay off
+
+
+#puts weather.current.temperature.inspect
+#puts location.inspect
+#.methods
+
+
+#https://learn.skillcrush.com/module-18/step-1-create-your-weather-script/
+#https://developer.yahoo.com/weather/?guccounter=1
+#require 'bundler/setup' #https://code.tutsplus.com/articles/ruby-for-newbies-working-with-gems--net-18977
+#Bundler.require(:default) #do I need this if I don't have an extra require?
+
+require 'barometer'
+#require 'barometer-yahoo'
+#require 'barometer-noaa'
+#require 'barometer-forecast_io'
+#require 'nokogiri'
+#Barometer::WeatherService.register(:yahoo, Barometer::Yahoo)
+#Barometer::WeatherService.register(:noaa, Barometer::Noaa)
+#Barometer::WeatherService.register(:forecast_io, Barometer::ForecastIo)
+
+puts "Where are you (city, zipcode, landmark, or Woe ID)"
+location = gets.chomp
+
+# use yahoo and noaag, if they both fail, use wunderground
+#Barometer.config = { 1 => :yahoo, 2 => :wunderground }
+
+barometer = Barometer.new(location)
+weather = barometer.measure
+
+temp = weather.current.condition
+
+puts weather.current.temperature.f
+puts temp
+#puts weather.inspect
+
+
+#puts "Where are you (city, zipcode, landmark, or Woe ID)"
+#location = gets.chomp
+
+#barometer = Barometer.new('Kansas City')   #script from Barometer gem
+#weather = barometer.measure
+#puts weather.current.temperature.f #the temperature is waaaay off
+
+
+#puts weather.current.temperature.inspect
+#puts location.inspect
+#.methods
