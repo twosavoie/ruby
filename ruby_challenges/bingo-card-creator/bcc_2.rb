@@ -1,11 +1,10 @@
-#https://learn.skillcrush.com/module-19/setting-up-your-bingo-card/
-
+#I think there is a way to do length, for instance if this was a string, so keep in mind for a future project...
 def align(num)
-  if num < 10
-    "  #{num}"
-  else
-    " #{num}"
-  end
+if num.length < 2 #this doesn't work because .length doesn't work for integers but I think it has other possibilities.
+  "  #{num}"
+else
+  " #{num}"
+end
 end
 
 b_col = (1..15).to_a.sample(5)
@@ -14,7 +13,7 @@ n_col = (31..45).to_a.sample(4)
 g_col = (46..60).to_a.sample(5)
 o_col = (61..75).to_a.sample(5)
 
-#didn't add #{align...} for ingo because they would all be double digits. If that wasn't true or not knowable, would need to add to each.
+
 bingo_card = <<-BINGO
 +-----+-----+-----+-----+-----+
 |  B  |  I  |  N  |  G  |  O  |
