@@ -40,44 +40,48 @@ puts n_col.inspect
 puts g_col.inspect
 puts o_col.inspect
 
-#Prawn::Document.generate("bingo.pdf") do
-#  text bingo_card
-#end  prints to terminal and creates pdf - but not pretty
+header = ["B", "I", "N", "G", "O"]
+n_col.insert(2, "F") #add F to the array in the third position
 
-#Prawn::Document.generate("bingo.pdf") do
-#  define_grid(columns: 5, rows: 6)
-#  grid.show_all
-#end   pdf is a grid of 5 columns and 6 rows with index numbers in the upper left corner
-
-#Prawn::Document.generate("bingo.pdf") do
-#  define_grid(columns: 5, rows: 6)
-
-#  grid(0, 0).bounding_box do
-#    stroke_bounds
-#  end
-#end  creates one box with a defined border
-
+#http://prawnpdf.org/manual.pdf under "Layout"
 Prawn::Document.generate("bingo.pdf") do
   define_grid(columns: 5, rows: 6)
 
-  grid(0, 0).bounding_box do
+  header.each_with_index do |char, i|
+    grid(0, i).bounding_box do
     stroke_bounds
-    text "B", align: :center, valign: :center, size: 50, style: :bold
+    text char, align: :center, valign: :center, size: 50, style: :bold
+    end
   end
-  grid(0, 1).bounding_box do
-    stroke_bounds
-    text "I", align: :center, valign: :center, size: 50, style: :bold
+
+  b_col.each_with_index do |num, i|
+    grid((i + 1), 0).bounding_box do
+      stroke_bounds
+      text num.to_s, align: :center, valign: :center, size: 50
+    end
   end
-  grid(0, 2).bounding_box do
-    stroke_bounds
-    text "N", align: :center, valign: :center, size: 50, style: :bold
+  i_col.each_with_index do |num, i|
+    grid((i + 1), 1).bounding_box do
+      stroke_bounds
+      text num.to_s, align: :center, valign: :center, size: 50
+    end
   end
-  grid(0, 3).bounding_box do
-    stroke_bounds
-    text "G", align: :center, valign: :center, size: 50, style: :bold
+  n_col.each_with_index do |num, i|
+    grid((i + 1), 2).bounding_box do
+      stroke_bounds
+      text num.to_s, align: :center, valign: :center, size: 50
+    end
   end
-  grid(0, 4).bounding_box do
-    stroke_bounds
-    text "O", align: :center, valign: :center, size: 50, style: :bold
+  g_col.each_with_index do |num, i|
+    grid((i + 1), 3).bounding_box do
+      stroke_bounds
+      text num.to_s, align: :center, valign: :center, size: 50
+    end
   end
-end #creates a grid with "BINGO" at the top
+  o_col.each_with_index do |num, i|
+    grid((i + 1), 4).bounding_box do
+      stroke_bounds
+      text num.to_s, align: :center, valign: :center, size: 50
+    end
+  end
+end #creates a grid with "BINGO" at the top but by using an array
