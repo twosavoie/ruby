@@ -3,7 +3,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-doc = Nokogiri::HTML(open('http://www.skillcrush.com'))
+doc = Nokogiri::HTML(open('https://www.skillcrush.com'))
 #puts doc
 #puts doc.inspect
 
@@ -14,4 +14,4 @@ puts doc.search("h1")
 #.css('.entry-title').inner_html    what is within the html tag
 #.css('.entry-title').chilren   what is with the html tag. span will seperate into chunks
 #.css('.entry-title').children[0]      first in the array
-#.methods   all the methods available to doc 
+#.methods   all the methods available to doc

@@ -3,11 +3,11 @@
 require 'nokogiri'
 require 'open-uri'
 
-doc = Nokogiri::HTML(open('http://www.marthastewart.com/312598/brick-pressed-sandwich'))
+doc = Nokogiri::HTML(open('https://www.marthastewart.com/312598/brick-pressed-sandwich'))
 #puts doc
 #puts doc.inspect
 
-#find class for ingredients 
+#find class for ingredients
 list = doc.css('.component-text').children
 list.each do |ingredient|
 puts "#{ingredient}"
