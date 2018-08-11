@@ -1,3 +1,4 @@
+#require 'rubygems' was in https://gist.github.com/erikwco-snippets/5102867 plus spec = before Gem...
 Gem::Specification.new do |s|
 
  s.name        = 'greeter.rb'
@@ -18,7 +19,7 @@ Gem::Specification.new do |s|
 
  s.license     = 'MIT'
 
- s.bindir      = 'exe'
+ s.bindir      = 'bin' #exe didn't work. bin didn't work. is it possible I don't need? commenting out didn't work.
 
  s.executables << 'greeter'
 
