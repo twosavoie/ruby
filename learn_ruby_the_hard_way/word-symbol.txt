@@ -1,0 +1,49 @@
+puts - puts on the screen, gives a new line
+print - prints to the screen, no new line
+
+open - open a file
+.write  - write the file
+.close - close the file
+.read - read the file
+.truncate(0) - erase the file
+(f) - file
+
+"" - a string, tells Ruby, just put exactly what is here unless there is a #{}
+'' - also a string but don't use this if you are using contractions
+#{} - a variable of function within a string
++ - * / % < > == === true false
+%{} - percent sign notation, allows you to put double or single quotes into a string without escaping (so the printed line includes the quote marks). could also be a letter so %s{} to indicate what you want (in this case a symbol)
+%q[ ]	Non-interpolated String (except for \\ \[ and \])
+%Q[ ]	Interpolated String (default)
+%r[ ]	Interpolated Regexp (flags can appear after the closing delimiter)
+%s[ ]	Non-interpolated Symbol
+%w[ ]	Non-interpolated Array of words, separated by whitespace
+%W[ ]	Interpolated Array of words, separated by whitespace
+%x[ ]	Interpolated shell command
+
+ Escape	What it does.
+ \\	Backslash ()
+ \'	Single-quote (')
+ \"	Double-quote (")
+ \a	ASCII bell (BEL)
+ \b	ASCII backspace (BS)
+ \f	ASCII formfeed (FF)
+ \n	ASCII linefeed (LF) - go to next line
+ \r	ASCII Carriage Return (CR)
+ \t	ASCII Horizontal Tab (TAB)
+ \uxxxx	Character with 16-bit hex value xxxx (Unicode only)
+ \v	ASCII vertical tab (VT)
+ \ooo	Character with octal value ooo
+ \xhh	Character with hex value hh
+
+""" - put as many lines of text here as you want
+
+gets.chomp - gets input from a user and chomps off the carriage return
+gets.chomp.to_i - and convert the string to an integer
+gets.chomp.to_f - and convert string to a factor (something with a decimal)
+$stdin.gets.chomp - used with ARGV
+
+ARGV - argument variable - another way of getting input, when running the script the input is added to the end of the run line
+ARGV.first - when there is only one variable
+
+*args - multiple arguements

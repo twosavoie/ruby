@@ -1,0 +1,62 @@
+Let's compare what can hashes can do to what arrays lists can do. You see, an array lets you do this:
+
+?> things = ['a', 'b', 'c', 'd']
+=> ["a", "b", "c", "d"]
+>> puts things[1]
+b
+=> nil
+>> things[1] = 'z'
+=> "z"
+>> puts things[1]
+z
+=> nil
+>> things
+=> ["a", "z", "c", "d"]
+
+*******
+
+What a Hash does is let you use anything, not just numbers as your index. Yes, a Hash associates one thing to another, no matter what it is. Take a look:
+
+?> stuff = {'name' => 'Zed', 'age' => 39, 'height' => 6 * 12 + 2}
+=> {"name"=>"Zed", "age"=>39, "height"=>74}
+>> puts stuff['name']
+Zed
+=> nil
+>> puts stuff['age']
+39
+=> nil
+>> puts stuff['height']
+74
+=> nil
+>> stuff['city'] = "San Francisco"
+=> "San Francisco"
+>> print stuff['city']
+San Francisco=> nil
+
+********
+
+You will see that instead of just numbers we're using strings to say what we want from the stuff hash. We can also put new things into the hash with strings. You aren't limited to strings for keys or values. We can also do this:
+
+?> stuff[1] = "Wow"
+=> "Wow"
+>> stuff[2] = "Neato"
+=> "Neato"
+>> puts stuff[1]
+Wow
+=> nil
+>> puts stuff[2]
+Neato
+=> nil
+>> stuff
+=> {"name"=>"Zed", "age"=>39, "height"=>74, "city"=>"San Francisco", 1=>"Wow", 2=>"Neato"}
+
+Of course, a hash that you can only put things in is pretty stupid, so here's how you delete things, with the delete function:
+
+?> stuff.delete('city')
+=> "San Francisco"
+>> stuff.delete(1)
+=> "Wow"
+>> stuff.delete(2)
+=> "Neato"
+>> stuff
+=> {"name"=>"Zed", "age"=>39, "height"=>74}

@@ -1,0 +1,3 @@
+# https://learnrubythehardway.org/book/ex48.html
+
+# evaluating user input ie is it an integer...
