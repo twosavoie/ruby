@@ -1,5 +1,6 @@
 require 'sinatra'
 
+# pass in the birthdate variable (from form input) and reduce to a single digit
 def get_birth_path_num(birthdate)
     number = birthdate[0].to_i + birthdate[1].to_i + birthdate[2].to_i + birthdate[3].to_i + birthdate[4].to_i + birthdate[5].to_i + birthdate[6].to_i + birthdate[7].to_i
 
@@ -14,6 +15,7 @@ def get_birth_path_num(birthdate)
     return number
 end
 
+# use the number to print a specific message
 def get_message(birth_path_num)
     # use a case statement to display the correct meaning
     case birth_path_num
@@ -40,23 +42,71 @@ def get_message(birth_path_num)
     end
 end
 
+# Is the user input 8 numbers?
+def valid_birthdate(input)
+#  if input.length == 8 && input.match(/^[0-9]+[0-9]$/) my code
+# SK code:
+  if(input.length == 8 && !input.match(/^[0-9]+[0-9]$/).nil?)
+    true
+  else
+    false
+  end
+end
+
+# when page loads, get & print the form
 get '/' do
   erb :form
 end
 
+# After checking for valid input redirect to print numerology message. If the input is invalid, print an error message. Also use redirect to prevent user from inputing the same info repeatedly
 post '/' do
-  "#{params}"
+  birthdate = params[:birthdate].gsub("-","")
+  if valid_birthdate(birthdate)
+    birth_path_num = get_birth_path_num(birthdate)
+    redirect "/message/#{birth_path_num}"
+  else
+    @error = "Sorry, your input wasn't valid. Try again!"
+    erb :form
+  end
 end
 
+# print the numerology message
+get '/message/:birth_path_num' do
+  birth_path_num = params[:birth_path_num].to_i
+  @message = get_message(birth_path_num)
+  erb :index
+end
 
-#get '/newpage' do # why not '/:newpage' ?
-  # contents of your new page
-#  erb :newpage
-#end
-
+# not necessary to script(form). allowed url localhost:4567/birthdate entered by user. however, testing does not work unless it is included.
 get '/:birthdate' do
   birthdate = params[:birthdate]
   birth_path_num = get_birth_path_num(birthdate)
   @message = get_message(birth_path_num)
   erb :index
 end
+
+
+# not necessary to script. replaced by setup_index_view method. this works though
+#post '/' do
+#  birthdate = params[:birthdate]
+#  birth_path_num = get_birth_path_num(birthdate)
+#  @message = get_message(birth_path_num)
+#  "#{@message}"
+#end
+
+# not necessary to script. just creating a second page
+#get '/newpage' do # why not '/:newpage' ?
+  # contents of your new page
+#  erb :newpage
+#end
+
+# not necessary, function replaced, works though
+#def setup_index_view
+#  birthdate = params[:birthdate]
+#  birth_path_num = get_birth_path_num(birthdate)
+#  @message = get_message(birth_path_num)
+#  "#{@message}"
+#end
+#post '/' do
+#  setup_index_view
+#end

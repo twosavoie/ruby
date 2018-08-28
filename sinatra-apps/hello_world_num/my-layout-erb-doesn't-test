@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Numerology Sinatra App</title>
+  </head>
+  <body>
+    <header>
+      <%= yield %>
+    </header>
+    <main>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
