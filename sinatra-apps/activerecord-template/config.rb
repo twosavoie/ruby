@@ -15,7 +15,7 @@ DB_NAME = APP_NAME + "_development.db"
 
 TEST_DB_NAME = APP_NAME + "_test.db"
 
-DB_USERNAME = 'lisapaulsavoie'  #postgres #changed due to answers Max has given to others who might have had similar problems. 
+DB_USERNAME = 'lisapaulsavoie'  #postgres #changed due to answers Max has given to others who might have had similar problems. Changed back
 
 DB_PASSWORD = '' # removed password since I didn't specify one during PostgresSQL installation
 
